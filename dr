@@ -1,0 +1,53 @@
+#include "p16F876A.inc"
+
+; CONFIG
+; __config 0x3F3A
+ __CONFIG _FOSC_HS & _WDTE_OFF & _PWRTE_OFF & _BOREN_OFF & _LVP_OFF & _CPD_OFF & _WRT_OFF & _CP_OFF
+org 0
+       goto met1
+       nop
+       nop
+org 0x4
+       movwf 0x40
+       movlw 0x65
+       movwf TMR0 
+ 
+       clrf INTCON  
+       bsf STATUS,RP0  
+       movlw 0xC7  
+       movwf OPTION_REG
+       bcf STATUS,RP0
+       movlw 0x1
+       movwf PORTB
+       movlw 0x41
+       movwf 0x20
+ met2: nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       decfsz 0x20,f
+       goto met2
+       
+       movf 0x50,w
+       movwf 0x20
+ met7: nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
+       nop
