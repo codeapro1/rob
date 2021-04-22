@@ -1,6 +1,3 @@
- 
- #include "p16F876A.inc"
-
    ; CONFIG
 
    ; __config 0x3F3A
